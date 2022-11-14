@@ -3,12 +3,11 @@ import React from 'react';
 const UsersList = ({ usersList, selectUser, deleteUser }) => {
   return (
     <>
-      
+
       <div className="container">
         {
           usersList.map((user) => (
-
-            <>
+            <div key={user.id}>
               <div className="card">
                 <div className="face face1">
                   <div className="content">
@@ -24,13 +23,13 @@ const UsersList = ({ usersList, selectUser, deleteUser }) => {
                     <div className='info-btn'>
                       <button className='btn select-btn' onClick={() => selectUser(user)}>
 
-                      <i className="fa-solid fa-user-pen"></i>
+                        <i className="fa-solid fa-user-pen"></i>
 
                       </button>
 
                       <button className='btn delete-btn' onClick={() => deleteUser(user.id)}>
 
-                      <i className="fa-solid fa-user-xmark"></i>
+                        <i className="fa-solid fa-user-xmark"></i>
 
                       </button>
                     </div>
@@ -42,7 +41,7 @@ const UsersList = ({ usersList, selectUser, deleteUser }) => {
 
 
 
-            </>
+            </div>
           ))
         }
       </div>

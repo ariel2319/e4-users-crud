@@ -3,9 +3,11 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 
-const UsersForm = ({ getUserList, userSelected, deselectUser }) => {
+const UsersForm = ({ getUserList, userSelected, deselectUser, modalIsOpen }) => {
 
   const { handleSubmit, register, reset } = useForm();
+
+  
 
   const clean = () => {
     first_name : "";
@@ -27,7 +29,7 @@ const UsersForm = ({ getUserList, userSelected, deselectUser }) => {
 
   const submit = (data) => {
     if (userSelected) {
-      alert("actualizandooooooooo")
+      /* alert("actualizandooooooooo") */
       axios
         .put(`https://users-crud1.herokuapp.com/users/${userSelected.id}/`, data)
         .then(()=> {
@@ -45,7 +47,7 @@ const UsersForm = ({ getUserList, userSelected, deselectUser }) => {
   
 
   return (
-    <form action="" onSubmit={handleSubmit(submit)}>
+    <form className='form-container' action="" onSubmit={handleSubmit(submit)}>
 
       <div className='input-container'>
         <label htmlFor="lastName"> Last Name: </label>
@@ -58,7 +60,7 @@ const UsersForm = ({ getUserList, userSelected, deselectUser }) => {
       </div>
 
       <div className='input-container'>
-        <label htmlFor="birthday"> Birthday: </label>
+        <label htmlFor="birthday"> Birthday:  </label>
         <input {...register("birthday")} type="date" id='birthday' />
       </div>
 
@@ -73,8 +75,7 @@ const UsersForm = ({ getUserList, userSelected, deselectUser }) => {
       </div>
 
       <button className='btn form-btn'> Accept </button>
-
-      <button className='btn form-btn' onClick={()=>reset(clean)}> Decline </button>
+      
     </form>
   );
 };

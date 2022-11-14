@@ -1,9 +1,11 @@
 import axios from 'axios'
+import 'bootstrap/dist/css/bootstrap.css';
 import { useEffect, useState } from 'react'
 import UsersForm from './components/UsersForm'
 import './style.css'
 import UsersList from './components/UsersList'
 import DigitalClock from './components/DigitalClock'
+import AddModal from './components/AddModal';
 
 function App() {
 
@@ -45,18 +47,24 @@ function App() {
     <div className="App">
       <div className='title'>
         <h1 style={{ textAlign: "left", fontWeight: "600" }}> Users </h1>
-        <button className='btn add-btn' onClick={toggleModal()}>
+        {/* <button className='btn add-btn' onClick={toggleModal()}>
           <i className="fa-solid fa-user-plus"></i>
-        </button>
+        </button> */}
+        <AddModal
+          getUserList={getUserList}
+          userSelected={userSelected}
+          deselectUser={deselectUser}
+        />
+        
       </div>
       <div className='line'></div>
       {/* <DigitalClock/> */}
 
-      <UsersForm
+     {/*  <UsersForm
         getUserList={getUserList}
         userSelected={userSelected}
         deselectUser={deselectUser}
-      />
+      /> */}
 
 
       <UsersList
