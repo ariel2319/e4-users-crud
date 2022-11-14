@@ -1,13 +1,14 @@
 import React from 'react';
+import SelectModal from './SelectModal';
 
-const UsersList = ({ usersList, selectUser, deleteUser }) => {
+const UsersList = ({ usersList, selectUser, deleteUser, getUserList }) => {
   return (
     <>
-
+      
       <div className="container">
         {
           usersList.map((user) => (
-            <div key={user.id}>
+<div key={user.id}>
               <div className="card">
                 <div className="face face1">
                   <div className="content">
@@ -18,18 +19,30 @@ const UsersList = ({ usersList, selectUser, deleteUser }) => {
                 <div className="face face2">
                   <div className="content">
                     <div className='p'><b> Email:</b> {user.email}</div>
-                    <div className='p'> <b> Birthday:</b> {user.birthday}</div>
+                    <div className='p'><b> Birthday:</b> {user.birthday}</div>
 
                     <div className='info-btn'>
-                      <button className='btn select-btn' onClick={() => selectUser(user)}>
 
-                        <i className="fa-solid fa-user-pen"></i>
 
-                      </button>
+
+                      {/* <button className='btn select-btn' onClick={() => selectUser(user)}>
+
+                      <i className="fa-solid fa-user-pen"></i>
+
+                      </button> */}
+                    
+
+                    <SelectModal 
+                      selectUser={selectUser}
+                      getUserList={getUserList}
+                      user={user}
+                    />
+
+
 
                       <button className='btn delete-btn' onClick={() => deleteUser(user.id)}>
 
-                        <i className="fa-solid fa-user-xmark"></i>
+                      <i className="fa-solid fa-user-xmark"></i>
 
                       </button>
                     </div>
@@ -41,7 +54,7 @@ const UsersList = ({ usersList, selectUser, deleteUser }) => {
 
 
 
-            </div>
+              </div>
           ))
         }
       </div>

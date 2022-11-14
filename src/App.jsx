@@ -1,11 +1,11 @@
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.css';
 import { useEffect, useState } from 'react'
-import UsersForm from './components/UsersForm'
 import './style.css'
 import UsersList from './components/UsersList'
 import DigitalClock from './components/DigitalClock'
 import AddModal from './components/AddModal';
+import Swal from 'sweetalert2';
 
 function App() {
 
@@ -52,15 +52,16 @@ function App() {
         </button> */}
         <AddModal
           getUserList={getUserList}
-          userSelected={userSelected}
+          userSelected={null}
           deselectUser={deselectUser}
         />
         
       </div>
+
       <div className='line'></div>
       {/* <DigitalClock/> */}
 
-     {/*  <UsersForm
+      {/*  <UsersForm
         getUserList={getUserList}
         userSelected={userSelected}
         deselectUser={deselectUser}
@@ -71,6 +72,8 @@ function App() {
         usersList={usersList}
         selectUser={selectUser}
         deleteUser={deleteUser}
+
+        getUserList={getUserList}
       />
 
 

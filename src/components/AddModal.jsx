@@ -8,7 +8,6 @@ const AddModal = ({ getUserList, userSelected, deselectUser }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
 
-
   return (
     <div>
       <div className='page-container'>
@@ -18,24 +17,23 @@ const AddModal = ({ getUserList, userSelected, deselectUser }) => {
       </div>
 
 
+      <Modal isOpen={modalIsOpen} className='modal-container'>
 
-      <Modal isOpen={modalIsOpen}>
         <ModalHeader>
-          Add User
+          ADD User
         </ModalHeader>
+        <div className='lineModal' ></div>
 
+        
         <UsersForm
           getUserList={getUserList}
           userSelected={userSelected}
           deselectUser={deselectUser}
-          modalIsOpen2={modalIsOpen}
         />
         
         <button className='btn form-btn' onClick={()=>setModalIsOpen(false)}> Decline </button>
+
       </Modal>
-
-
-
     </div>
   );
 };
